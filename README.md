@@ -1,4 +1,5 @@
 # CO225-Java-Project
+![slide1](Wiki/Images/slide1.png)
 
 ## Team
 - [Fernando K.A.I. - E/18/098](https://people.ce.pdn.ac.lk/students/e18/098/)
