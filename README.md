@@ -1,4 +1,3 @@
-# CO225-Java-Project
 ![slide1](Wiki/Images/slide1.png)
 
 ## Team
