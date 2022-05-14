@@ -11,3 +11,5 @@ public class BidCoin_Backend {
 	}
 
 }
+
+// Server address - 20.124.110.167:8080 - http://bidcoinco225.tk:8080/api/test
