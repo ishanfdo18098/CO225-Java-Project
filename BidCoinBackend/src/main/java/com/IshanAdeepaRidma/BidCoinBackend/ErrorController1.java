@@ -18,7 +18,7 @@ public class ErrorController1 implements ErrorController{
 }
 
 class showError {
-    private String status = "Error - No mapping found";
+    private String status = "Error - Please check if the url is correct and the request body is correct";
 
     public String getStatus(){
         return status;
