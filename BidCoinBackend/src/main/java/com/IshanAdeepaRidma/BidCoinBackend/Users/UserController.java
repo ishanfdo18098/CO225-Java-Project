@@ -20,7 +20,7 @@ public class UserController {
     }
 
     @PostMapping("/registerNewUser")
-    public ResponseEntity<UserModel> createPost(@RequestBody UserModel userModel) {
+    public ResponseEntity<UserModel> registerNewUser(@RequestBody UserModel userModel) {
         try {
             UserModel thisUser = userRepository
                     .save(new UserModel(userModel.getEmail(), userModel.getPasswd(), false));
@@ -30,15 +30,27 @@ public class UserController {
         }
     }
 
-    // @GetMapping("/login/{email}")
-    // public ResponseEntity<UserModel> getPostById(@PathVariable("email") String email) {
-    //     Optional<Post> post = postRepository.findById(id);
+    @PostMapping("/login")
+    public LoginModel login(@RequestBody UserModel userModel) {
+        List<UserModel> thisUser = userRepository.findByEmail(userModel.getEmail());
+        for (UserModel eachUserModel : thisUser) {
+            if (eachUserModel.getPasswd().equals(userModel.getPasswd())) {
+                return new LoginModel(true);
+            }
+        }
+        return new LoginModel(false);
+    }
 
-    //     if (post.isPresent()) {
-    //         return new ResponseEntity<>(post.get(), HttpStatus.OK);
-    //     } else {
-    //         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-    //     }
+    // @GetMapping("/login/{email}")
+    // public ResponseEntity<UserModel> getPostById(@PathVariable("email") String
+    // email) {
+    // Optional<Post> post = postRepository.findById(id);
+
+    // if (post.isPresent()) {
+    // return new ResponseEntity<>(post.get(), HttpStatus.OK);
+    // } else {
+    // return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    // }
     // }
 
     // @PutMapping("/posts/{id}")

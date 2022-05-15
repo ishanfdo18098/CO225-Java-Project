@@ -4,7 +4,6 @@ import java.util.Objects;
 
 import javax.persistence.*;
 
-
 @Entity
 @Table(name = "users")
 public class UserModel {
@@ -14,7 +13,7 @@ public class UserModel {
     @Column(name = "passwd")
     private String passwd;
     @Column(name = "isAdmin")
-    private boolean isAdmin;
+    private boolean isAdmin = false;
 
     public UserModel() {
 
