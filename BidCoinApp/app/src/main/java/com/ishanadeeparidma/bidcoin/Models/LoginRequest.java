@@ -5,26 +5,26 @@ import android.os.Parcelable;
 
 import com.google.gson.annotations.SerializedName;
 
-public class LoginModel implements Parcelable{
+public class LoginRequest implements Parcelable{
     @SerializedName("email")
     private String email;
     @SerializedName("passwd")
     private String password;
 
-    protected LoginModel(Parcel in) {
+    protected LoginRequest(Parcel in) {
         email = in.readString();
         password = in.readString();
     }
 
-    public static final Creator<LoginModel> CREATOR = new Creator<LoginModel>() {
+    public static final Creator<LoginRequest> CREATOR = new Creator<LoginRequest>() {
         @Override
-        public LoginModel createFromParcel(Parcel in) {
-            return new LoginModel(in);
+        public LoginRequest createFromParcel(Parcel in) {
+            return new LoginRequest(in);
         }
 
         @Override
-        public LoginModel[] newArray(int size) {
-            return new LoginModel[size];
+        public LoginRequest[] newArray(int size) {
+            return new LoginRequest[size];
         }
     };
 
@@ -44,7 +44,7 @@ public class LoginModel implements Parcelable{
         this.password = password;
     }
 
-    public LoginModel(String email, String password){
+    public LoginRequest(String email, String password){
         this.email = email;
         this.password = password;
     }

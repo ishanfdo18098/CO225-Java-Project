@@ -2,25 +2,21 @@ package com.ishanadeeparidma.bidcoin.Login;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.Window;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ishanadeeparidma.bidcoin.Models.API_TestModel;
-import com.ishanadeeparidma.bidcoin.Models.LoginModel;
+import com.ishanadeeparidma.bidcoin.Models.LoginRequest;
 import com.ishanadeeparidma.bidcoin.Models.LoginResponse;
 import com.ishanadeeparidma.bidcoin.Net.BidCoinAPIAccess;
 import com.ishanadeeparidma.bidcoin.R;
 import com.ishanadeeparidma.bidcoin.Repository.API_Repository;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.Scanner;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -63,7 +59,7 @@ public class LoginActivity extends AppCompatActivity {
         Log.d("Button","Login Button Clicked, email:" + emailText + " password:"+ passwordText);
         BidCoinAPIAccess api = API_Repository.api;
 
-        api.loginUser(new LoginModel(emailText,passwordText)).enqueue(new Callback<LoginResponse>() {
+        api.loginUser(new LoginRequest(emailText,passwordText)).enqueue(new Callback<LoginResponse>() {
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                 boolean isCorrect = response.body().isPasswordCorrect();
@@ -82,5 +78,10 @@ public class LoginActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Server error !", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    public void openRegistrationPage(View v){
+        Intent myIntent = new Intent(this, RegisterNewUser.class);
+        startActivity(myIntent);
     }
 }
