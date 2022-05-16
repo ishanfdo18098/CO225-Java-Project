@@ -1,5 +1,8 @@
 package com.IshanAdeepaRidma.BidCoinBackend;
 
+
+import com.IshanAdeepaRidma.BidCoinBackend.CSV.ReadCSV;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -7,6 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class BidCoin_Backend {
 
 	public static void main(String[] args) {
+		ReadCSV.readCSV();
 		SpringApplication.run(BidCoin_Backend.class, args);
 	}
 
