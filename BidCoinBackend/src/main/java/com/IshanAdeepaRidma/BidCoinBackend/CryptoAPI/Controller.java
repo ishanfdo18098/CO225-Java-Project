@@ -5,7 +5,6 @@ import com.IshanAdeepaRidma.BidCoinBackend.CoinGecko.impl.CoinGeckoApiClientImpl
 
 import org.springframework.web.bind.annotation.*;
 
-
 @RestController
 @RequestMapping("/api/crypto/")
 public class Controller {
@@ -14,9 +13,7 @@ public class Controller {
     @GetMapping("/{id}")
     public CryptoPriceModel getAllUsers(@PathVariable("id") String cryptoName) {
         return new CryptoPriceModel(cryptoName,
-                Double.valueOf(api.getPrice(cryptoName, "usd").get(cryptoName).get("usd").toString()));
+                Double.valueOf(api.getPrice(cryptoName.toLowerCase(), "usd").get(cryptoName).get("usd").toString()));
     }
-
-    
 
 }
