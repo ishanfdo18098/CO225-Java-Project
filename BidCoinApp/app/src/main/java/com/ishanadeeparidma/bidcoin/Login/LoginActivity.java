@@ -63,7 +63,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                 boolean isCorrect = response.body().isPasswordCorrect();
-                Log.d("LOGIN API","return from API" + isCorrect);
+                Log.d("LOGIN API","return from API " + isCorrect);
                 if (isCorrect){
                     Toast.makeText(getApplicationContext(),"Password is correct!", Toast.LENGTH_SHORT).show();
 //                    Password correct, send into next activity
