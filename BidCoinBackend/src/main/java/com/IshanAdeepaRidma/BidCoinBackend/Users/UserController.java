@@ -35,10 +35,10 @@ public class UserController {
         List<UserModel> thisUser = userRepository.findByEmail(userModel.getEmail());
         for (UserModel eachUserModel : thisUser) {
             if (eachUserModel.getPasswd().equals(userModel.getPasswd())) {
-                return new LoginModel(true);
+                return new LoginModel(true, eachUserModel.isIsAdmin());
             }
         }
-        return new LoginModel(false);
+        return new LoginModel(false, false);
     }
 
     // @GetMapping("/login/{email}")

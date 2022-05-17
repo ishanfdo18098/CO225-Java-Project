@@ -1,7 +1,5 @@
 package com.IshanAdeepaRidma.BidCoinBackend.Users;
 
-import java.util.Objects;
-
 import javax.persistence.*;
 
 @Entity

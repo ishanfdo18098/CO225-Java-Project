@@ -1,7 +1,5 @@
 package com.ishanadeeparidma.bidcoin.Login;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,14 +7,15 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.ishanadeeparidma.bidcoin.Models.API_TestModel;
 import com.ishanadeeparidma.bidcoin.Models.LoginRequest;
 import com.ishanadeeparidma.bidcoin.Models.LoginResponse;
 import com.ishanadeeparidma.bidcoin.Net.BidCoinAPIAccess;
 import com.ishanadeeparidma.bidcoin.R;
 import com.ishanadeeparidma.bidcoin.Repository.API_Repository;
-
-import java.io.IOException;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -33,8 +32,9 @@ public class LoginActivity extends AppCompatActivity {
 
         api.testAPI().enqueue(new Callback<API_TestModel>() {
             @Override
-            public void onResponse(Call<API_TestModel> call, Response<API_TestModel> response) {
-                if (response.body().getIsAlive().toString().equals("alive")) {
+            public void onResponse(@NonNull Call<API_TestModel> call, @NonNull Response<API_TestModel> response) {
+                assert response.body() != null;
+                if (response.body().getIsAlive().equals("alive")) {
                     Toast.makeText(getApplicationContext(), "Server Online", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(getApplicationContext(),"Server Offline",Toast.LENGTH_LONG).show();
@@ -42,13 +42,13 @@ public class LoginActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<API_TestModel> call, Throwable t) {
+            public void onFailure(@NonNull Call<API_TestModel> call, Throwable t) {
                 Toast.makeText(getApplicationContext(),"Server Offline",Toast.LENGTH_LONG).show();
             }
         }) ;
     }
 
-    public void loginButtonClick(View v) throws IOException {
+    public void loginButtonClick(View v) {
 
         EditText email = findViewById(R.id.editTextTextEmailAddress);
         EditText password = findViewById(R.id.password);
@@ -62,8 +62,9 @@ public class LoginActivity extends AppCompatActivity {
         api.loginUser(new LoginRequest(emailText,passwordText)).enqueue(new Callback<LoginResponse>() {
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+                assert response.body() != null;
                 boolean isCorrect = response.body().isPasswordCorrect();
-                Log.d("LOGIN API","return from API" + isCorrect);
+                Log.d("LOGIN API","return from API " + isCorrect);
                 if (isCorrect){
                     Toast.makeText(getApplicationContext(),"Password is correct!", Toast.LENGTH_SHORT).show();
 //                    Password correct, send into next activity
