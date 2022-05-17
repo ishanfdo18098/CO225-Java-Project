@@ -23,6 +23,9 @@ public class BidController {
     @Autowired
     SingleBidRepository singleBidRepository;
 
+    @Autowired
+    BidWonRepository bidWonRepository;
+
     @GetMapping("/all")
     public List<BidModel> getAllCurrentBids() {
         return bidRepository.findAll();
@@ -65,7 +68,12 @@ public class BidController {
         return singleBid;
     }
 
-    public static boolean checkIfTimeExpired(LocalDateTime endTime){
+    @GetMapping("/allWonBids")
+    public List<BidWonModel> getAllBidsWon() {
+        return bidWonRepository.findAll();
+    }
+
+    public static boolean checkIfTimeExpired(LocalDateTime endTime) {
         LocalDateTime now = LocalDateTime.now();
         return endTime.isBefore(now);
     }
