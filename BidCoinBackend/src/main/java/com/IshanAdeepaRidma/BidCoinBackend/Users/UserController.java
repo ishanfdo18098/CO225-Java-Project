@@ -22,6 +22,10 @@ public class UserController {
     @PostMapping("/registerNewUser")
     public ResponseEntity<UserModel> registerNewUser(@RequestBody UserModel userModel) {
         try {
+            List<UserModel> allUsersWithEmail = userRepository.findByEmail(userModel.getEmail());
+            if (allUsersWithEmail.size() != 0) {
+                return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+            }
             UserModel thisUser = userRepository
                     .save(new UserModel(userModel.getEmail(), userModel.getPasswd(), false));
             return new ResponseEntity<>(thisUser, HttpStatus.CREATED);
