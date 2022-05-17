@@ -17,10 +17,7 @@
         android:theme="@style/Theme.BidCoin"
         tools:targetApi="31">
         <activity
-            android:name=".Bidding.SelectCurrencyActivity"
-            android:exported="false" />
-        <activity
-            android:name=".Bidding.BiddingActivity"
+            android:name=".CryptoRates.Top10CryptoActivity"
             android:exported="false" />
         <activity
             android:name=".Login.LoginActivity"
