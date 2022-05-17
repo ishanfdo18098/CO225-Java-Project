@@ -12,13 +12,13 @@ public class CoinMarkets {
     @JsonProperty("id")
     private String id;
     @JsonProperty("symbol")
-    private String symbol;
+    public String symbol;
     @JsonProperty("name")
-    private String name;
+    public String name;
     @JsonProperty("image")
     private String image;
     @JsonProperty("current_price")
-    private double currentPrice;
+    public double currentPrice;
     @JsonProperty("market_cap")
     private double marketCap;
     @JsonProperty("market_cap_rank")

@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/crypto/")
-public class Controller {
+public class CryptoPriceController {
     static CoinGeckoApiClient api = new CoinGeckoApiClientImpl();
 
     @GetMapping("/{cryptoName}")
@@ -15,7 +15,8 @@ public class Controller {
         return new CryptoPriceModel(cryptoName, getCurrentPriceOfCrypto(cryptoName));
     }
 
-    public static Double getCurrentPriceOfCrypto(String cryptoName){
-        return Double.valueOf(api.getPrice(cryptoName.toLowerCase(), "usd").get(cryptoName).get("usd").toString());
+    public static Double getCurrentPriceOfCrypto(String cryptoName) {
+        return Double.valueOf(
+                api.getPrice(cryptoName.toLowerCase(), "usd").get(cryptoName.toLowerCase()).get("usd").toString());
     }
 }
