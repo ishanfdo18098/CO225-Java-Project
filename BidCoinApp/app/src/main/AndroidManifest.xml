@@ -17,8 +17,14 @@
         android:theme="@style/Theme.BidCoin"
         tools:targetApi="31">
         <activity
+            android:name=".Bidding.SelectCurrencyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Bidding.BiddingActivity"
+            android:exported="false" />
+        <activity
             android:name=".Login.LoginActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".Login.RegisterNewUser"
             android:exported="false" />

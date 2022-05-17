@@ -24,14 +24,8 @@ public class Welcome extends AppCompatActivity {
             public void onClick(View view) {
                 // Calling the function
                 openLoginPage(view);
-
             }
         });
-
-
-
-
-
         // Create Account Button Functioning
         Button CreateAccountButton = (Button) findViewById(R.id.CreateAccountButton);
         CreateAccountButton.setOnClickListener(new View.OnClickListener() {

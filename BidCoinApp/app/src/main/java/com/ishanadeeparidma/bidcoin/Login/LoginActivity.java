@@ -1,20 +1,24 @@
 package com.ishanadeeparidma.bidcoin.Login;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.ishanadeeparidma.bidcoin.Bidding.BiddingActivity;
 import com.ishanadeeparidma.bidcoin.Models.API_TestModel;
 import com.ishanadeeparidma.bidcoin.Models.LoginRequest;
 import com.ishanadeeparidma.bidcoin.Models.LoginResponse;
 import com.ishanadeeparidma.bidcoin.Net.BidCoinAPIAccess;
 import com.ishanadeeparidma.bidcoin.R;
 import com.ishanadeeparidma.bidcoin.Repository.API_Repository;
+import com.ishanadeeparidma.bidcoin.Bidding.BiddingActivity;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -35,6 +39,7 @@ public class LoginActivity extends AppCompatActivity {
                 assert response.body() != null;
                 if (response.body().getIsAlive().equals("alive")) {
                     Toast.makeText(getApplicationContext(), "Server Online", Toast.LENGTH_SHORT).show();
+
                 } else {
                     Toast.makeText(getApplicationContext(),"Server Offline",Toast.LENGTH_LONG).show();
                 }
@@ -67,6 +72,13 @@ public class LoginActivity extends AppCompatActivity {
                 if (isCorrect){
                     Toast.makeText(getApplicationContext(),"Password is correct!", Toast.LENGTH_SHORT).show();
 //                    Password correct, send into next activity
+                    //=======================================
+                    //for now log in page will straightly go to the bidding page
+                    // Login Button Functioning
+                    //Log.d("bashith","this means the initial line is executed");
+                            openBiddingPage();
+                    //Log.d("bashith","this means the final line is executed");
+                    //=======================================
                 } else {
                     Toast.makeText(getApplicationContext(), "Password is incorrect!", Toast.LENGTH_SHORT).show();
 //                    Password incorrect, stay here and try again
@@ -80,8 +92,14 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    //public void openRegistrationPage(View v){
-    //    Intent myIntent = new Intent(this, RegisterNewUser.class);
-    //    startActivity(myIntent);
-    //}
+
+
+
+    // To navigate to the Bidding Page // >>> this should be change later to the activity that contains the graph
+    public void openBiddingPage(){
+        Intent biddingPage = new Intent(this, BiddingActivity.class);
+        //Log.d("bashith","activity is about to start");
+        startActivity(biddingPage);
+        //Log.d("bashith","activity is started");
+    }
 }
