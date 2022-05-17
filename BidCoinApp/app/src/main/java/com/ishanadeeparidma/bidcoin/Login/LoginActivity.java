@@ -80,8 +80,8 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    public void openRegistrationPage(View v){
-        Intent myIntent = new Intent(this, RegisterNewUser.class);
-        startActivity(myIntent);
-    }
+    //public void openRegistrationPage(View v){
+    //    Intent myIntent = new Intent(this, RegisterNewUser.class);
+    //    startActivity(myIntent);
+    //}
 }

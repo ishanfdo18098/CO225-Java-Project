@@ -17,10 +17,13 @@
         android:theme="@style/Theme.BidCoin"
         tools:targetApi="31">
         <activity
+            android:name=".Login.LoginActivity"
+            android:exported="false"/>
+        <activity
             android:name=".Login.RegisterNewUser"
             android:exported="false" />
         <activity
-            android:name=".Login.LoginActivity"
+            android:name=".Login.Welcome"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
