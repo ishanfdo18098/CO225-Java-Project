@@ -28,6 +28,24 @@ public class BidController {
 
     @GetMapping("/all")
     public List<BidModel> getAllCurrentBids() {
+        List<BidModel> allBids = bidRepository.findAll();
+        for (BidModel thisBid : allBids) {
+            if (checkIfTimeExpired(thisBid.getEndDate())) {
+                List<SingleBidModel> allSingleBids = singleBidRepository.findByCryptoName(thisBid.getCryptoName());
+                SingleBidModel maximum = Collections.max(allSingleBids, new Comparator<SingleBidModel>() {
+                    @Override
+                    public int compare(SingleBidModel arg0, SingleBidModel arg1) {
+                        // TODO Auto-generated method stub
+                        return arg0.getBidValue().compareTo(arg1.getBidValue());
+                    }
+                });
+
+                bidWonRepository.save(new BidWonModel(maximum.getEmail(), thisBid.getCryptoName(),
+                        thisBid.getStartDate(), maximum.getBidEnteredTime(), maximum.getBidValue()));
+
+                bidRepository.delete(thisBid);
+            }
+        }
         return bidRepository.findAll();
     }
 
