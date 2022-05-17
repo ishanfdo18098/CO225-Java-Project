@@ -28,29 +28,13 @@ public class BidController {
 
     @GetMapping("/all")
     public List<BidModel> getAllCurrentBids() {
-        List<BidModel> allBids = bidRepository.findAll();
-        for (BidModel thisBid : allBids) {
-            if (checkIfTimeExpired(thisBid.getEndDate())) {
-                List<SingleBidModel> allSingleBids = singleBidRepository.findByCryptoName(thisBid.getCryptoName());
-                SingleBidModel maximum = Collections.max(allSingleBids, new Comparator<SingleBidModel>() {
-                    @Override
-                    public int compare(SingleBidModel arg0, SingleBidModel arg1) {
-                        // TODO Auto-generated method stub
-                        return arg0.getBidValue().compareTo(arg1.getBidValue());
-                    }
-                });
-
-                bidWonRepository.save(new BidWonModel(maximum.getEmail(), thisBid.getCryptoName(),
-                        thisBid.getStartDate(), maximum.getBidEnteredTime(), maximum.getBidValue()));
-
-                bidRepository.delete(thisBid);
-            }
-        }
+        checkForExpiredBids();
         return bidRepository.findAll();
     }
 
     @PostMapping("/createBid")
     public ResponseEntity<CreateNewBidModel> addNewBid(@RequestBody CreateNewBidModel model) {
+        checkForExpiredBids();
         List<BidModel> allCurrentBids = bidRepository.findAll();
         for (BidModel bidModel : allCurrentBids) {
             if (bidModel.getCryptoName().equalsIgnoreCase(model.getCryptoName())) {
@@ -72,27 +56,55 @@ public class BidController {
 
     @GetMapping("/allInsertedBids")
     public List<SingleBidModel> getAllInsertedBids() {
+        checkForExpiredBids();
         return singleBidRepository.findAll();
     }
 
     @GetMapping("/getInsertedBidsOnRunningBid/{cryptoName}")
     public List<SingleBidModel> getAllBidsOnARunningBid(@PathVariable("cryptoName") String cryptoName) {
+        checkForExpiredBids();
         return singleBidRepository.findByCryptoName(cryptoName.toLowerCase());
     }
 
     @PostMapping("/insertNewBidOnRunningBid")
     public SingleBidModel insertNewBidOnRunningBid(@RequestBody SingleBidModel singleBid) {
+        checkForExpiredBids();
         singleBidRepository.save(singleBid);
         return singleBid;
     }
 
     @GetMapping("/allWonBids")
     public List<BidWonModel> getAllBidsWon() {
+        checkForExpiredBids();
         return bidWonRepository.findAll();
     }
 
     public static boolean checkIfTimeExpired(LocalDateTime endTime) {
         LocalDateTime now = LocalDateTime.now();
         return endTime.isBefore(now);
+    }
+
+    public void checkForExpiredBids() {
+        List<BidModel> allBids = bidRepository.findAll();
+        for (BidModel thisBid : allBids) {
+            if (checkIfTimeExpired(thisBid.getEndDate())) {
+                List<SingleBidModel> allSingleBids = singleBidRepository.findByCryptoName(thisBid.getCryptoName());
+                SingleBidModel maximum = Collections.max(allSingleBids, new Comparator<SingleBidModel>() {
+                    @Override
+                    public int compare(SingleBidModel arg0, SingleBidModel arg1) {
+                        return arg0.getBidValue().compareTo(arg1.getBidValue());
+                    }
+                });
+
+                bidWonRepository.save(new BidWonModel(maximum.getEmail(), thisBid.getCryptoName(),
+                        thisBid.getStartDate(), maximum.getBidEnteredTime(), maximum.getBidValue()));
+
+                bidRepository.delete(thisBid);
+
+                for (SingleBidModel thisSingleBid : allSingleBids) {
+                    singleBidRepository.delete(thisSingleBid);
+                }
+            }
+        }
     }
 }
