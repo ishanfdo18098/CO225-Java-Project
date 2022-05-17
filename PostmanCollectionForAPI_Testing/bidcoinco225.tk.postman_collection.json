@@ -1,0 +1,353 @@
+{
+	"info": {
+		"_postman_id": "0dadc918-208f-4b52-89f2-4648524d7aac",
+		"name": "bidcoinco225.tk",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "TEST",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://bidcoinco225.tk:8080/api/test",
+					"protocol": "http",
+					"host": [
+						"bidcoinco225",
+						"tk"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"test"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllUsers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://bidcoinco225.tk:8080/api/users/getAllUsers",
+					"protocol": "http",
+					"host": [
+						"bidcoinco225",
+						"tk"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"users",
+						"getAllUsers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "REGISTER",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"ishanfdo1\",\r\n    \"passwd\":\"12345\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://bidcoinco225.tk:8080/api/users/registerNewUser",
+					"protocol": "http",
+					"host": [
+						"bidcoinco225",
+						"tk"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"users",
+						"registerNewUser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LOGIN",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"ishanfdo1\",\r\n    \"passwd\":\"12345\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://bidcoinco225.tk:8080/api/users/login",
+					"protocol": "http",
+					"host": [
+						"bidcoinco225",
+						"tk"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CRYPTO_PRICE",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://bidcoinco225.tk:8080/api/crypto/bitcoin",
+					"protocol": "http",
+					"host": [
+						"bidcoinco225",
+						"tk"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"crypto",
+						"bitcoin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CSV_CONTENTS_ALL",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://bidcoinco225.tk:8080/api/csv/all",
+					"protocol": "http",
+					"host": [
+						"bidcoinco225",
+						"tk"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"csv",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CSV_CONTENTS_SINGLE",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://bidcoinco225.tk:8080/api/csv/1",
+					"protocol": "http",
+					"host": [
+						"bidcoinco225",
+						"tk"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"csv",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TOP_10_CRYPTO",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://bidcoinco225.tk:8080/api/top10/",
+					"protocol": "http",
+					"host": [
+						"bidcoinco225",
+						"tk"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"top10",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "VIEW_ALL_BIDS",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://bidcoinco225.tk:8080/api/bids/all",
+					"protocol": "http",
+					"host": [
+						"bidcoinco225",
+						"tk"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"bids",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "START_NEW_BID",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"ishanfdo1\",\r\n    \"password\":\"12345\",\r\n    \"startDate\":\"2018-07-14T17:45:55.9483536\",\r\n    \"endDate\":\"2022-05-17T16:50:55.9483536\",\r\n    \"cryptoName\":\"bitcoin\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://bidcoinco225.tk:8080/api/bids/createBid",
+					"protocol": "http",
+					"host": [
+						"bidcoinco225",
+						"tk"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"bids",
+						"createBid"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "VIEW_INSERTED_BIDS_ON_RUNNING_BID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://bidcoinco225.tk:8080/api/bids/allInsertedBids",
+					"protocol": "http",
+					"host": [
+						"bidcoinco225",
+						"tk"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"bids",
+						"allInsertedBids"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET_BIDS_ON_A_SINGLE_RUNNING_BID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://bidcoinco225.tk:8080/api/bids/getInsertedBidsOnRunningBid/bitcoin",
+					"protocol": "http",
+					"host": [
+						"bidcoinco225",
+						"tk"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"bids",
+						"getInsertedBidsOnRunningBid",
+						"bitcoin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "INSERT_NEW_BID_ON_RUNNING_BID",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"ishanfdo1\",\r\n    \"bidEnteredTime\":\"2022-05-17T16:10:55.9483536\",\r\n    \"cryptoName\":\"bitcoin\",\r\n    \"bidValue\":\"123.123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://bidcoinco225.tk:8080/api/bids/insertNewBidOnRunningBid",
+					"protocol": "http",
+					"host": [
+						"bidcoinco225",
+						"tk"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"bids",
+						"insertNewBidOnRunningBid"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "VIEW_ALL_WON_BIDS",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://bidcoinco225.tk:8080/api/bids/allWonBids",
+					"protocol": "http",
+					"host": [
+						"bidcoinco225",
+						"tk"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"bids",
+						"allWonBids"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
