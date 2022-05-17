@@ -69,7 +69,10 @@ public class BidController {
     @PostMapping("/insertNewBidOnRunningBid")
     public SingleBidModel insertNewBidOnRunningBid(@RequestBody SingleBidModel singleBid) {
         checkForExpiredBids();
-        singleBidRepository.save(singleBid);
+        if (checkIfTimeExpired(singleBid.getBidEnteredTime().plusSeconds(5)))
+            return null;
+        singleBidRepository.save(new SingleBidModel(singleBid.getEmail(), singleBid.getBidEnteredTime(),
+                singleBid.getCryptoName(), singleBid.getBidValue()));
         return singleBid;
     }
 

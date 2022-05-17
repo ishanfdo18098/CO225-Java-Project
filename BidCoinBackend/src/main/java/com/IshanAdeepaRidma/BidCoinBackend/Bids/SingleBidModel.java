@@ -7,12 +7,12 @@ import javax.persistence.*;
 @Entity
 @Table(name = "BidsEntered")
 public class SingleBidModel {
-    @Column
+    @Id
+    @Column(length = 30)
     private String email;
     @Column
     private LocalDateTime bidEnteredTime;
-    @Id
-    @Column(length = 30)
+    @Column
     private String cryptoName;
     @Column
     private Double bidValue;
