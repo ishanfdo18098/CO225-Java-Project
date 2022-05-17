@@ -86,6 +86,8 @@ public class BidController {
 
     public void checkForExpiredBids() {
         List<BidModel> allBids = bidRepository.findAll();
+        if (allBids.size() == 0)
+            return;
         for (BidModel thisBid : allBids) {
             if (checkIfTimeExpired(thisBid.getEndDate())) {
                 List<SingleBidModel> allSingleBids = singleBidRepository.findByCryptoName(thisBid.getCryptoName());
@@ -95,12 +97,14 @@ public class BidController {
                         return arg0.getBidValue().compareTo(arg1.getBidValue());
                     }
                 });
-
+                if (maximum == null)
+                    return;
                 bidWonRepository.save(new BidWonModel(maximum.getEmail(), thisBid.getCryptoName(),
                         thisBid.getStartDate(), maximum.getBidEnteredTime(), maximum.getBidValue()));
 
                 bidRepository.delete(thisBid);
-
+                if (allSingleBids.size() == 0)
+                    return;
                 for (SingleBidModel thisSingleBid : allSingleBids) {
                     singleBidRepository.delete(thisSingleBid);
                 }
