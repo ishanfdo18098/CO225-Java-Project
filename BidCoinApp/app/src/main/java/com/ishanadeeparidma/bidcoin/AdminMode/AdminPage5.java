@@ -12,6 +12,7 @@ import com.ishanadeeparidma.bidcoin.R;
 import com.ishanadeeparidma.bidcoin.Repository.API_Repository;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -59,19 +60,22 @@ public class AdminPage5 extends AppCompatActivity {
                     for (RunningBidResponse eachBid : response.body()) {
                         TextView auctionName = new TextView(AdminPage5.this);
                         auctionName.setText("AUCTION on : " + eachBid.getCryptoName()); // Just number
+                        auctionName.setTextColor(Color.parseColor("#030303")); // Changing colour
                         LinearLayoutBody.addView(auctionName);
 
                         TextView startAt = new TextView(AdminPage5.this);
                         startAt.setText("START : " + eachBid.getStartDate());  // Add Starting time from db
+                        startAt.setTextColor(Color.parseColor("#030303")); // Changing colour
                         LinearLayoutBody.addView(startAt);
 
                         TextView endAt = new TextView(AdminPage5.this);
                         endAt.setText("END : "  + eachBid.getEndDate());  // Add Ending time from db
+                        endAt.setTextColor(Color.parseColor("#030303")); // Changing colour
                         LinearLayoutBody.addView(endAt);
 
                         // Button also
                         Button SelectButton = new Button(AdminPage5.this);
-                        SelectButton.setText("End Bid");
+                        SelectButton.setText("End Auction");
                         SelectButton.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
