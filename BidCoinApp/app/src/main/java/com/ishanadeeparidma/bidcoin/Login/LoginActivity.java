@@ -26,7 +26,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
-
+    public static boolean isServerOnline = true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,20 +39,27 @@ public class LoginActivity extends AppCompatActivity {
                 assert response.body() != null;
                 if (response.body().getIsAlive().equals("alive")) {
                     Toast.makeText(getApplicationContext(), "Server Online", Toast.LENGTH_SHORT).show();
+                    isServerOnline = true;
 
                 } else {
                     Toast.makeText(getApplicationContext(),"Server Offline",Toast.LENGTH_LONG).show();
+                    isServerOnline = false;
                 }
             }
 
             @Override
             public void onFailure(@NonNull Call<API_TestModel> call, Throwable t) {
                 Toast.makeText(getApplicationContext(),"Server Offline",Toast.LENGTH_LONG).show();
+                isServerOnline = false;
             }
         }) ;
     }
 
     public void loginButtonClick(View v) {
+        if (!isServerOnline){
+            Toast.makeText(this,"Server is offline. Please contact admin",Toast.LENGTH_LONG).show();
+            return;
+        }
 
         EditText email = findViewById(R.id.editTextTextEmailAddress);
         EditText password = findViewById(R.id.password);
