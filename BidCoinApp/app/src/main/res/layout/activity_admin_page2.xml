@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
-    tools:context=".CryptoRates.Top10CryptoActivity">
+    tools:context=".CryptoRates.Top10CryptoActivity"
+    android:background="@drawable/whitebg">
 
     <com.github.mikephil.charting.charts.LineChart
         android:id="@+id/Top10CryptoLineChart"
