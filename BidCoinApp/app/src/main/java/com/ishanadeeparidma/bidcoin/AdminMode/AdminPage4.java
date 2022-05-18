@@ -6,12 +6,10 @@ import com.ishanadeeparidma.bidcoin.Models.StartNewBidByAdminModel;
 import com.ishanadeeparidma.bidcoin.Net.BidCoinAPIAccess;
 import com.ishanadeeparidma.bidcoin.R;
 
-import com.ishanadeeparidma.bidcoin.AdminMode.AdminPage5;
 import com.ishanadeeparidma.bidcoin.Repository.API_Repository;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.InputType;
@@ -69,7 +67,8 @@ public class AdminPage4 extends AppCompatActivity {
         date_time_end.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showDateTimeDialog(date_time_end);
+
+                  showDateTimeDialog(date_time_end);
             }
         });
 
