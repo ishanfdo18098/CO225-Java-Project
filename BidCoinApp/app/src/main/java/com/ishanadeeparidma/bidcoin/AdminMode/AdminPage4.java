@@ -3,6 +3,7 @@ package com.ishanadeeparidma.bidcoin.AdminMode;
 import androidx.appcompat.app.AppCompatActivity;
 import com.ishanadeeparidma.bidcoin.R;
 
+import com.ishanadeeparidma.bidcoin.AdminMode.AdminPage5;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
@@ -80,13 +81,18 @@ public class AdminPage4 extends AppCompatActivity {
 
     }
 
-    String startTime = date_time_start.getText().toString();
-    String endTime = date_time_end.getText().toString();
+    // The app craches when the EditText is converted to strings;
+    // probably because at this time there is no string to be converted
+    //if we trigger this after a date is selected then it might work
+    //didnt check
+
+    //String startTime = date_time_start.getText().toString();
+    //String endTime = date_time_end.getText().toString();
 
     public void confirmButton(View V){
         Intent i = new Intent(this, AdminPage5.class);
-        i.putExtra("start time",startTime);
-        i.putExtra("end time",endTime);
+       //i.putExtra("start time",startTime);
+      //  i.putExtra("end time",endTime);
         startActivity(i);
     }
 
