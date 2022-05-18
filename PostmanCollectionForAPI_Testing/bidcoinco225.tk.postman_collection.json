@@ -348,6 +348,29 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "ADMIN_CANCEL_BID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://bidcoinco225.tk:8080/api/admin/cancelBid/bitcoin",
+					"protocol": "http",
+					"host": [
+						"bidcoinco225",
+						"tk"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"admin",
+						"cancelBid",
+						"bitcoin"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

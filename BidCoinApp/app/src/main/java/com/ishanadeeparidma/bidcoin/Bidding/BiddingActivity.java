@@ -13,7 +13,6 @@ import android.os.Handler;
 import android.view.View;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
