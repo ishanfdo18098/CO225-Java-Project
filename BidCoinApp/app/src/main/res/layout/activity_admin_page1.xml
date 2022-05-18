@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:onClick="viewCurrencyRates"
-    tools:context=".AdminMode.AdminPage1">
+    tools:context=".AdminMode.AdminPage1"
+    android:background="@drawable/whitebg">
 
     <Button
         android:id="@+id/button4"
