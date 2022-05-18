@@ -20,9 +20,6 @@
             android:name=".CurrentAuctions.AllCurrentAuctions"
             android:exported="false" />
         <activity
-            android:name=".Login.Welcome"
-            android:exported="false" />
-        <activity
             android:name=".Login.LoginActivity"
             android:exported="false" />
         <activity
@@ -35,6 +32,9 @@
         <activity
             android:name=".Bidding.SelectCurrencyActivity"
             android:exported="false" />
+        <activity
+            android:name=".CryptoRates.Top10CryptoActivity"
+            android:exported="false"  />
         <activity
             android:name=".Login.Welcome"
             android:exported="true" >
