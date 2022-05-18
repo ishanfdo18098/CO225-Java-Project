@@ -30,7 +30,6 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        new API_Repository();
         BidCoinAPIAccess api = API_Repository.api;
 
         api.testAPI().enqueue(new Callback<API_TestModel>() {
@@ -76,7 +75,7 @@ public class LoginActivity extends AppCompatActivity {
                     //for now log in page will straightly go to the bidding page
                     // Login Button Functioning
                     //Log.d("bashith","this means the initial line is executed");
-                            openBiddingPage();
+                    openBiddingPage();
                     //Log.d("bashith","this means the final line is executed");
                     //=======================================
                 } else {
@@ -97,7 +96,7 @@ public class LoginActivity extends AppCompatActivity {
 
     // To navigate to the Bidding Page // >>> this should be change later to the activity that contains the graph
     public void openBiddingPage(){
-        Intent biddingPage = new Intent(this, BiddingActivity.class);
+        Intent biddingPage = new Intent(LoginActivity.this, BiddingActivity.class);
         //Log.d("bashith","activity is about to start");
         startActivity(biddingPage);
         //Log.d("bashith","activity is started");
