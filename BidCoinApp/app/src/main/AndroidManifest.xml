@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.ishanadeeparidma.bidcoin" >
+    package="com.ishanadeeparidma.bidcoin">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -15,24 +15,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BidCoin"
-        tools:targetApi="31" >
-
+        tools:targetApi="31">
         <activity
-<<<<<<< HEAD
-            android:name=".Bidding.SelectCurrencyActivity"
+            android:name=".CurrentAuctions.AllCurrentAuctions"
             android:exported="false" />
         <activity
-            android:name=".Bidding.BiddingActivity"
+            android:name=".Login.Welcome"
             android:exported="false" />
         <activity
-=======
->>>>>>> 2eadc08377cb83decbab682900b7322090b7fbbe
             android:name=".Login.LoginActivity"
             android:exported="false" />
         <activity
             android:name=".Login.RegisterNewUser"
             android:exported="false" />
         <activity
+
             android:name=".Bidding.BiddingActivity"
             android:exported="false" />
         <activity
@@ -41,6 +38,10 @@
         <activity
             android:name=".Login.Welcome"
             android:exported="true" >
+
+            android:name=".CryptoRates.Top10CryptoActivity"
+            android:exported="true">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
