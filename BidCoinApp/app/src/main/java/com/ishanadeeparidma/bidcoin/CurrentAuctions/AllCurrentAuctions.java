@@ -19,9 +19,17 @@ public class AllCurrentAuctions extends AppCompatActivity {
         LinearLayoutBody = findViewById(R.id.LinearLayoutBody);
         //Adding 2 TextViews
         for (int i = 1; i <= 5; i++) {
-            TextView textView = new TextView(this);
-            textView.setText("TextView " + String.valueOf(i));
-            LinearLayoutBody.addView(textView);
+            TextView auctionName = new TextView(this);
+            auctionName.setText("AUCTION " + String.valueOf(i)); // Just number
+            LinearLayoutBody.addView(auctionName);
+
+            TextView startAt = new TextView(this);
+            startAt.setText("START " + String.valueOf(i));  // Add Starting time from db
+            LinearLayoutBody.addView(startAt);
+
+            TextView endAt = new TextView(this);
+            endAt.setText("END " + String.valueOf(i));  // Add Ending time from db
+            LinearLayoutBody.addView(endAt);
 
             // Button also
             Button SelectButton = new Button(this);

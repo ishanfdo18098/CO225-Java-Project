@@ -29,19 +29,8 @@
             android:name=".Login.RegisterNewUser"
             android:exported="false" />
         <activity
-
-            android:name=".Bidding.BiddingActivity"
-            android:exported="false" />
-        <activity
-            android:name=".Bidding.SelectCurrencyActivity"
-            android:exported="false" />
-        <activity
-            android:name=".Login.Welcome"
-            android:exported="true" >
-
             android:name=".CryptoRates.Top10CryptoActivity"
             android:exported="true">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
