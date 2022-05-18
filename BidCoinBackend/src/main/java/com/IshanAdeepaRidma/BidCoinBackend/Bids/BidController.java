@@ -4,7 +4,6 @@ import java.time.LocalDateTime;
 import java.util.*;
 
 import com.IshanAdeepaRidma.BidCoinBackend.CryptoAPI.CryptoPriceController;
-import com.IshanAdeepaRidma.BidCoinBackend.CryptoAPI.CryptoPriceModel;
 import com.IshanAdeepaRidma.BidCoinBackend.Users.UserModel;
 import com.IshanAdeepaRidma.BidCoinBackend.Users.UserRepository;
 
