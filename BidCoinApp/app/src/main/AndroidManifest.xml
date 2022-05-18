@@ -29,6 +29,9 @@
             android:name=".AdminMode.AdminPage4"
             android:exported="false" />
         <activity
+            android:name=".AdminMode.AdminPage5"
+            android:exported="false" />
+        <activity
             android:name=".AdminMode.AdminPage6"
             android:exported="false" />
         <activity

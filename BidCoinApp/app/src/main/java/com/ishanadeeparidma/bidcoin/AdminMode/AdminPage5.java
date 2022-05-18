@@ -3,6 +3,7 @@ package com.ishanadeeparidma.bidcoin.AdminMode;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.ishanadeeparidma.bidcoin.Bidding.BiddingActivity;
+import com.ishanadeeparidma.bidcoin.Models.AdminCancelBidModel;
 import com.ishanadeeparidma.bidcoin.Models.CryptoPriceResponse;
 import com.ishanadeeparidma.bidcoin.Models.RunningBidResponse;
 import com.ishanadeeparidma.bidcoin.Models.SingleBidResponse;
@@ -34,7 +35,7 @@ public class AdminPage5 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_all_current_auctions);
+        setContentView(R.layout.activity_admin_page5);
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
@@ -50,6 +51,7 @@ public class AdminPage5 extends AppCompatActivity {
         api.getCurrentRunningBids().enqueue(new Callback<List<RunningBidResponse>>() {
             @Override
             public void onResponse(Call<List<RunningBidResponse>> call, Response<List<RunningBidResponse>> response) {
+                ((TextView)findViewById(R.id.textView7)).setVisibility(View.INVISIBLE);
                 assert response.body() != null;
                 if (response.body().size() == 0)
                     Toast.makeText(AdminPage5.this, "No currently running bids", Toast.LENGTH_SHORT).show();
@@ -69,17 +71,27 @@ public class AdminPage5 extends AppCompatActivity {
 
                         // Button also
                         Button SelectButton = new Button(AdminPage5.this);
+                        SelectButton.setText("End Bid");
                         SelectButton.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-                                Intent i = new Intent(AdminPage5.this, BiddingActivity.class);
-                                i.putExtra("cryptoName",eachBid.getCryptoName());
-                                i.putExtra("email",email);
-                                i.putExtra("password",password);
-                                startActivity(i);
+                                api.cancelBidByAdmin(eachBid.getCryptoName()).enqueue(new Callback<AdminCancelBidModel>() {
+                                    @Override
+                                    public void onResponse(Call<AdminCancelBidModel> call, Response<AdminCancelBidModel> response) {
+                                        AdminCancelBidModel responseBody = response.body();
+                                        Toast.makeText(getApplicationContext(), "Bid cancelled, Won by " + responseBody.getWhoWonTheBid(),Toast.LENGTH_SHORT).show();
+                                        finish();
+                                        startActivity(getIntent());
+                                    }
+
+                                    @Override
+                                    public void onFailure(Call<AdminCancelBidModel> call, Throwable t) {
+                                        Toast.makeText(getApplicationContext(), "Server Error",Toast.LENGTH_SHORT).show();
+
+                                    }
+                                });
                             }
                         });
-                        SelectButton.setText("END NOW!");
                         LinearLayoutBody.addView(SelectButton);
                     }
                 }

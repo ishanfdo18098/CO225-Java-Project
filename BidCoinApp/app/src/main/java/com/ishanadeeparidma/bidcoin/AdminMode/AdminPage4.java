@@ -10,6 +10,7 @@ import com.ishanadeeparidma.bidcoin.Repository.API_Repository;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.InputType;
@@ -143,7 +144,10 @@ public class AdminPage4 extends AppCompatActivity {
                     @Override
                     public void run() {
                         // Do something after 5s = 5000ms
-                        finish();
+                        Intent nextIntent = new Intent(AdminPage4.this, AdminPage5.class);
+                        nextIntent.putExtra("email",email);
+                        nextIntent.putExtra("password",password);
+                        startActivity(nextIntent);
                     }
                 }, 2000);
             }

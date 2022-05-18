@@ -46,5 +46,10 @@ public interface BidCoinAPIAccess {
     @POST("api/bids/insertNewBidOnRunningBid")
     Call<SingleBidResponse> insertNewBidOnRunningBid(@Body SingleBidResponse singleBid);
 
+    @GET("api/bids/allWonBids")
+    Call<List<WonBidsModel>> getAllWonBids();
+
+    @GET("api/admin/cancelBid/{cryptoName}")
+    Call<AdminCancelBidModel> cancelBidByAdmin(@Path("cryptoName") String cryptoName);
 
 }

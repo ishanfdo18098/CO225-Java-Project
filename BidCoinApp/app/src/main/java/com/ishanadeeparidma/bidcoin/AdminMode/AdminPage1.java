@@ -37,7 +37,7 @@ public class AdminPage1 extends AppCompatActivity {
 
     public void viewCurrentAuctions(View v){
         //probably AllCurencyAuctions.class should be changed to AdminPage3.class
-        Intent j = new Intent(this, AdminPage3.class/*AdminPage3.class*/);
+        Intent j = new Intent(this, AdminPage5.class/*AdminPage3.class*/);
         j.putExtra("email",emailText);
         j.putExtra("password",passwordText);
         startActivity(j);
