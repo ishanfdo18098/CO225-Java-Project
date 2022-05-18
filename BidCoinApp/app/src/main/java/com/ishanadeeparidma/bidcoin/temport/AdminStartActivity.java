@@ -1,4 +1,4 @@
-package com.ishanadeeparidma.bidcoin.Admin;
+package com.ishanadeeparidma.bidcoin.temport;
 
 import androidx.appcompat.app.AppCompatActivity;
 import com.ishanadeeparidma.bidcoin.R;
@@ -18,17 +18,17 @@ public class AdminStartActivity extends AppCompatActivity {
     }
 
     public void viewCurrencyRates(View v){
-        Intent i = new Intent(this, Top10CryptoActivity.class)
+        Intent i = new Intent(this, Top10CryptoActivity.class);
         startActivity(i);
     }
 
     public void viewCurrentAuctions(View v){
-        Intent i = new Intent(this, AllCurrentAuctions.class)
+        Intent i = new Intent(this, AllCurrentAuctions.class);
         startActivity(i);
     }
 
     public void startNewAuctions(View v){
-        Intent i = new Intent(this, AllCurrentAuctions.class)
+        Intent i = new Intent(this, AllCurrentAuctions.class);
         startActivity(i);
     }
 

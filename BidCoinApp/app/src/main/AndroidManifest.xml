@@ -17,6 +17,9 @@
         android:theme="@style/Theme.BidCoin"
         tools:targetApi="31">
         <activity
+            android:name=".AdminStartActivity"
+            android:exported="false" />
+        <activity
             android:name=".CurrentAuctions.AllCurrentAuctions"
             android:exported="false" />
         <activity
@@ -26,7 +29,6 @@
             android:name=".Login.RegisterNewUser"
             android:exported="false" />
         <activity
-
             android:name=".Bidding.BiddingActivity"
             android:exported="false" />
         <activity
@@ -34,11 +36,10 @@
             android:exported="false" />
         <activity
             android:name=".CryptoRates.Top10CryptoActivity"
-            android:exported="false"  />
+            android:exported="false" />
         <activity
             android:name=".Login.Welcome"
-            android:exported="true" >
-
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
