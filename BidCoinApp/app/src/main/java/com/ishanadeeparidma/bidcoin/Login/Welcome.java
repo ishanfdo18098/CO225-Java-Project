@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.ishanadeeparidma.bidcoin.R;
+import com.ishanadeeparidma.bidcoin.Repository.API_Repository;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,6 +17,7 @@ public class Welcome extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
+        new API_Repository();
 
         // Login Button Functioning
         Button LoginButton = (Button) findViewById(R.id.LoginButton);

@@ -23,6 +23,12 @@
             android:name=".Login.RegisterNewUser"
             android:exported="false" />
         <activity
+            android:name=".Bidding.BiddingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Bidding.SelectCurrencyActivity"
+            android:exported="false" />
+        <activity
             android:name=".Login.Welcome"
             android:exported="true">
             <intent-filter>
