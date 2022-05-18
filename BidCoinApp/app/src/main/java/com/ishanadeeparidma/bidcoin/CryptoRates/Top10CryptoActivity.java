@@ -33,10 +33,20 @@ import retrofit2.Response;
 public class Top10CryptoActivity extends AppCompatActivity  {
 
     private LineChart Top10CryptoLineChart ;
+    String emailText = null;
+    String passwordText = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_top10_crypto);
+        Bundle extras = getIntent().getExtras();
+
+        if (extras != null) {
+            emailText = extras.getString("email");
+            passwordText = extras.getString("password");
+            //The key argument here must match that used in the other activity
+        }
+
         TextView textBelowChart = findViewById(R.id.editTextTextMultiLine2);
 
 //        get api reference
@@ -124,6 +134,8 @@ public class Top10CryptoActivity extends AppCompatActivity  {
     // To navigate to the Login Page
     public void openAllCurrentAuctionsPage(View v){
         Intent myIntent = new Intent(this, AllCurrentAuctions.class);
+        myIntent.putExtra("email", emailText);
+        myIntent.putExtra("password", passwordText);
         startActivity(myIntent);
     }
 
