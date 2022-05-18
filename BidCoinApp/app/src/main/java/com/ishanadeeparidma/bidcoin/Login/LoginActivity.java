@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.ishanadeeparidma.bidcoin.Bidding.BiddingActivity;
 import com.ishanadeeparidma.bidcoin.CryptoRates.Top10CryptoActivity;
+import com.ishanadeeparidma.bidcoin.AdminMode.*;
 import com.ishanadeeparidma.bidcoin.Models.API_TestModel;
 import com.ishanadeeparidma.bidcoin.Models.LoginRequest;
 import com.ishanadeeparidma.bidcoin.Models.LoginResponse;
@@ -104,7 +105,7 @@ public class LoginActivity extends AppCompatActivity {
 
     // To navigate to the Bidding Page // >>> this should be change later to the activity that contains the graph
     public void openBiddingPage(String email, String password){
-        Intent biddingPage = new Intent(LoginActivity.this, Top10CryptoActivity.class);
+        Intent biddingPage = new Intent(LoginActivity.this, AdminPage1.class);
         biddingPage.putExtra("email",email);
         biddingPage.putExtra("password",password);
         //Log.d("bashith","activity is about to start");
