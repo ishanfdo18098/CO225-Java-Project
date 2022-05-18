@@ -17,7 +17,19 @@
         android:theme="@style/Theme.BidCoin"
         tools:targetApi="31">
         <activity
-            android:name=".AdminStartActivity"
+            android:name=".AdminPage5"
+            android:exported="false" />
+        <activity
+            android:name=".AdminPage4"
+            android:exported="false" />
+        <activity
+            android:name=".AdminPage3"
+            android:exported="false" />
+        <activity
+            android:name=".AdminPage2"
+            android:exported="false" />
+        <activity
+            android:name=".AdminPage1"
             android:exported="false" />
         <activity
             android:name=".CurrentAuctions.AllCurrentAuctions"

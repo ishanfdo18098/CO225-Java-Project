@@ -12,11 +12,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="307dp"
+        android:layout_marginTop="30dp"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintStart_toEndOf="@+id/auctionTag"
-        app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3" />
 
     <EditText
         android:id="@+id/editTextTextPersonName3"
@@ -41,17 +41,6 @@
         app:layout_constraintTop_toBottomOf="@+id/auctionTag" />
 
     <TextView
-        android:id="@+id/auctionTag3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="30dp"
-        android:text="Currency :"
-        android:textSize="24dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/auctionTag4" />
-
-    <TextView
         android:id="@+id/auctionTag2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -60,7 +49,7 @@
         android:text="Bid Price $ :"
         android:textSize="24dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/auctionTag3" />
+        app:layout_constraintTop_toBottomOf="@+id/auctionTag4" />
 
     <ImageView
         android:id="@+id/imageView6"
@@ -93,23 +82,24 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView6" />
 
     <Button
-        android:id="@+id/currencySelect"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="25dp"
-        android:onClick="selectCrypto"
-        android:text="Select "
-        app:layout_constraintStart_toEndOf="@+id/auctionTag3"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3" />
-
-    <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="150dp"
+        android:onClick="onSubmitButtonClick"
         android:text="Submit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName4" />
+
+    <TextView
+        android:id="@+id/currentPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:text="TextView"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
