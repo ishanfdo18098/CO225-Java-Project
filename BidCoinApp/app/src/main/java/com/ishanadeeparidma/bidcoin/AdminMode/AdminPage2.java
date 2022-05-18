@@ -36,7 +36,7 @@ public class AdminPage2 extends AppCompatActivity  {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_top10_crypto);
+        setContentView(R.layout.activity_admin_page2);
         TextView textBelowChart = findViewById(R.id.editTextTextMultiLine2);
 
 //        get api reference
@@ -111,20 +111,20 @@ public class AdminPage2 extends AppCompatActivity  {
 
         // Now, button functionality.............
 
-        Button ViewCurrentAuctionsButton = (Button) findViewById(R.id.ViewCurrentAuctionsButton);
-        ViewCurrentAuctionsButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Calling the function
-                openAllCurrentAuctionsPage(view);
-            }
-        });
+//        Button ViewCurrentAuctionsButton = (Button) findViewById(R.id.ViewCurrentAuctionsButton);
+//        ViewCurrentAuctionsButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                // Calling the function
+//                openAllCurrentAuctionsPage(view);
+//            }
+//        });
     }
 
     // To navigate to the Login Page
-    public void openAllCurrentAuctionsPage(View v){
-        Intent myIntent = new Intent(this, AllCurrentAuctions.class);
-        startActivity(myIntent);
-    }
+//    public void openAllCurrentAuctionsPage(View v){
+//        Intent myIntent = new Intent(this, AllCurrentAuctions.class);
+//        startActivity(myIntent);
+//    }
 
 }

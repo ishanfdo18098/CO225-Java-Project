@@ -34,7 +34,7 @@ public class AdminPage3 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_all_current_auctions);
+        setContentView(R.layout.activity_admin_page3);
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {

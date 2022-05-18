@@ -8,9 +8,17 @@ import java.time.LocalDateTime;
 public class StartNewBidByAdminModel implements Parcelable {
     private String email;
     private String password;
-    private LocalDateTime startDate;
-    private LocalDateTime endDate;
+    private String startDate;
+    private String endDate;
     private String cryptoName;
+
+    public StartNewBidByAdminModel(String email, String password, String startDate, String endDate, String cryptoName) {
+        this.email = email;
+        this.password = password;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.cryptoName = cryptoName;
+    }
 
     protected StartNewBidByAdminModel(Parcel in) {
         email = in.readString();
@@ -46,19 +54,19 @@ public class StartNewBidByAdminModel implements Parcelable {
         this.password = password;
     }
 
-    public LocalDateTime getStartDate() {
+    public String getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(LocalDateTime startDate) {
+    public void setStartDate(String startDate) {
         this.startDate = startDate;
     }
 
-    public LocalDateTime getEndDate() {
+    public String getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(LocalDateTime endDate) {
+    public void setEndDate(String endDate) {
         this.endDate = endDate;
     }
 

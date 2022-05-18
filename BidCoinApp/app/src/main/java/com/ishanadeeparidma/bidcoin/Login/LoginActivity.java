@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.ishanadeeparidma.bidcoin.Bidding.BiddingActivity;
 import com.ishanadeeparidma.bidcoin.CryptoRates.Top10CryptoActivity;
 import com.ishanadeeparidma.bidcoin.AdminMode.*;
+import com.ishanadeeparidma.bidcoin.CurrentAuctions.AllCurrentAuctions;
 import com.ishanadeeparidma.bidcoin.Models.API_TestModel;
 import com.ishanadeeparidma.bidcoin.Models.LoginRequest;
 import com.ishanadeeparidma.bidcoin.Models.LoginResponse;
@@ -84,7 +85,7 @@ public class LoginActivity extends AppCompatActivity {
                     //for now log in page will straightly go to the bidding page
                     // Login Button Functioning
                     //Log.d("bashith","this means the initial line is executed");
-                    openBiddingPage(emailText, passwordText);
+                    openBiddingPage(emailText, passwordText, response.body().isAdmin());
                     //Log.d("bashith","this means the final line is executed");
                     //=======================================
                 } else {
@@ -104,12 +105,19 @@ public class LoginActivity extends AppCompatActivity {
 
 
     // To navigate to the Bidding Page // >>> this should be change later to the activity that contains the graph
-    public void openBiddingPage(String email, String password){
-        Intent biddingPage = new Intent(LoginActivity.this, AdminPage1.class);
-        biddingPage.putExtra("email",email);
-        biddingPage.putExtra("password",password);
-        //Log.d("bashith","activity is about to start");
-        startActivity(biddingPage);
-        //Log.d("bashith","activity is started");
+    public void openBiddingPage(String email, String password,boolean isAdmin){
+        if (!isAdmin) {
+            Intent biddingPage = new Intent(LoginActivity.this, Top10CryptoActivity.class);
+            biddingPage.putExtra("email", email);
+            biddingPage.putExtra("password", password);
+            //Log.d("bashith","activity is about to start");
+            startActivity(biddingPage);
+            //Log.d("bashith","activity is started");
+        } else {
+            Intent adminIntent = new Intent(LoginActivity.this, AdminPage1.class);
+            adminIntent.putExtra("email", email);
+            adminIntent.putExtra("password", password);
+            startActivity(adminIntent);
+        }
     }
 }

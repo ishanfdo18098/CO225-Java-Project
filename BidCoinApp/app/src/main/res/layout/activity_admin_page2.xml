@@ -41,13 +41,13 @@
             android:textSize="15sp" />#000000"
         android:textSize="8sp" />
 
-        <Button
-            android:id="@+id/ViewCurrentAuctionsButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:width="200dp"
-            android:text="VIEW CURRENT AUCTIONS"
-            android:textSize="16sp" />
+        <!--        <Button-->
+        <!--            android:id="@+id/ViewCurrentAuctionsButton"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:width="200dp"-->
+        <!--            android:text="VIEW CURRENT AUCTIONS"-->
+        <!--            android:textSize="16sp" />-->
     </LinearLayout>
 
 </RelativeLayout>
