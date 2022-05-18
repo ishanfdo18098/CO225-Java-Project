@@ -83,7 +83,7 @@ public class LoginActivity extends AppCompatActivity {
                     //for now log in page will straightly go to the bidding page
                     // Login Button Functioning
                     //Log.d("bashith","this means the initial line is executed");
-                    openBiddingPage();
+                    openBiddingPage(emailText, passwordText);
                     //Log.d("bashith","this means the final line is executed");
                     //=======================================
                 } else {
@@ -103,8 +103,10 @@ public class LoginActivity extends AppCompatActivity {
 
 
     // To navigate to the Bidding Page // >>> this should be change later to the activity that contains the graph
-    public void openBiddingPage(){
+    public void openBiddingPage(String email, String password){
         Intent biddingPage = new Intent(LoginActivity.this, Top10CryptoActivity.class);
+        biddingPage.putExtra("email",email);
+        biddingPage.putExtra("password",password);
         //Log.d("bashith","activity is about to start");
         startActivity(biddingPage);
         //Log.d("bashith","activity is started");

@@ -62,7 +62,7 @@ public class Top10CryptoActivity extends AppCompatActivity  {
                 for (Top10ResponseModel eachModel: allCryptos) {
                     Log.d("DEBUG123",eachModel.getName() + " " + eachModel.getPriceInUSD());
                     yValue.add(new Entry(i++, Float.parseFloat(eachModel.getPriceInUSD().toString())));
-                    textUnderTheChart.append(i-1 + "\t\t" + eachModel.getName() + "\t\t" + eachModel.getSymbol().toUpperCase(Locale.ROOT) + "\t\t" + eachModel.getPriceInUSD()+"\n");
+                    textUnderTheChart.append(i-1 + "\t\t" + eachModel.getName() + "\t\t" + eachModel.getSymbol().toUpperCase(Locale.ROOT) + "\t\t" + eachModel.getPriceInUSD()+"$\n");
                 }
                 textBelowChart.setText(textUnderTheChart);
                 Log.d("DEBUG123",yValue.toString());

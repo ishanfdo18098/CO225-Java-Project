@@ -1,35 +1,42 @@
 package com.ishanadeeparidma.bidcoin.Models;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.time.LocalDateTime;
 
 public class RunningBidResponse {
-    private Integer id;
-    private LocalDateTime startDate;
-    private LocalDateTime endDate;
+    @SerializedName("id")
+    private String id;
+    @SerializedName("startDate")
+    private String startDate;
+    @SerializedName("endDate")
+    private String endDate;
+    @SerializedName("cryptoName")
     private String cryptoName;
+    @SerializedName("createdByEmail")
     private String createdByEmail;
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public LocalDateTime getStartDate() {
+    public String getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(LocalDateTime startDate) {
+    public void setStartDate(String startDate) {
         this.startDate = startDate;
     }
 
-    public LocalDateTime getEndDate() {
+    public String getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(LocalDateTime endDate) {
+    public void setEndDate(String endDate) {
         this.endDate = endDate;
     }
 
