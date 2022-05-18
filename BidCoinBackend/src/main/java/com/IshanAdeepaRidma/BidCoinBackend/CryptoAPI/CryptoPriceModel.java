@@ -24,5 +24,4 @@ public class CryptoPriceModel {
     public void setPriceInUSD(Double priceInUSD) {
         this.priceInUSD = priceInUSD;
     }
-
 }
