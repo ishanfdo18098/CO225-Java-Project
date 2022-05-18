@@ -1,9 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AdminMode.AdminPage2">
+    android:background="#FFFFFF"
+    tools:context=".CryptoRates.Top10CryptoActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/Top10CryptoLineChart"
+        android:layout_width="match_parent"
+        android:layout_height="485dp"></com.github.mikephil.charting.charts.LineChart>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="246dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="485dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/editTextTextMultiLine2"
+            android:layout_width="match_parent"
+            android:layout_height="196dp"
+            android:ems="10"
+            android:gravity="start|top"
+            android:inputType="textMultiLine"
+            android:text="
+1\t\tBitcoin\t\tBTC \n
+2\t\tEthereum\t\tETH \n
+3\t\tTether\t\tUSDT \n
+4\t\tBinance Coin\t\tBNB\n
+5\t\tCardano\t\tADA\n
+6\t\tXRP\t\tXRP\n
+7\t\tDogecoin\t\tDOGE\n
+8\t\tUSD Coin\t\tUSDC\n
+9\t\tPolkadot\t\tDOT\n
+10\t\tUniswap\t\tUNI"
+            android:textColor="#000000"
+            android:textSize="15sp" />#000000"
+        android:textSize="8sp" />
+
+        <Button
+            android:id="@+id/ViewCurrentAuctionsButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:width="200dp"
+            android:text="VIEW CURRENT AUCTIONS"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+</RelativeLayout>

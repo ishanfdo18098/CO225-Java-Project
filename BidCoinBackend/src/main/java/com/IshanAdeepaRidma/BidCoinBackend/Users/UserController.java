@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -45,65 +46,9 @@ public class UserController {
         return new LoginModel(false, false);
     }
 
-    // @GetMapping("/login/{email}")
-    // public ResponseEntity<UserModel> getPostById(@PathVariable("email") String
-    // email) {
-    // Optional<Post> post = postRepository.findById(id);
-
-    // if (post.isPresent()) {
-    // return new ResponseEntity<>(post.get(), HttpStatus.OK);
-    // } else {
-    // return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-    // }
-    // }
-
-    // @PutMapping("/posts/{id}")
-    // public ResponseEntity<Post> updatePost(@PathVariable("id") long id,
-    // @RequestBody Post tutorial) {
-    // Optional<Post> postData = postRepository.findById(id);
-    // if (postData.isPresent()) {
-    // Post _post = postData.get();
-    // _post.setTitle(tutorial.getTitle());
-    // _post.setDescription(tutorial.getDescription());
-    // _post.setAuthor(tutorial.getAuthor());
-    // _post.setPublished(tutorial.isPublished());
-    // return new ResponseEntity<>(postRepository.save(_post), HttpStatus.OK);
-    // } else {
-    // return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-    // }
-    // }
-
-    // @DeleteMapping("/posts/{id}")
-    // public ResponseEntity<HttpStatus> deletePost(@PathVariable("id") long id) {
-    // try {
-    // postRepository.deleteById(id);
-    // return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-    // } catch (Exception e) {
-    // return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-    // }
-    // }
-
-    // @DeleteMapping("/posts")
-    // public ResponseEntity<HttpStatus> deleteAllPosts() {
-    // try {
-    // postRepository.deleteAll();
-    // return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-    // } catch (Exception e) {
-    // return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-    // }
-    // }
-
-    // @GetMapping("/posts/published")
-    // public ResponseEntity<List<Post>> findByPublished() {
-    // try {
-    // List<Post> tutorials = postRepository.findByPublished(true);
-    // if (tutorials.isEmpty()) {
-    // return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-    // }
-    // return new ResponseEntity<>(tutorials, HttpStatus.OK);
-    // } catch (Exception e) {
-    // return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-    // }
-    // }
+    @GetMapping("/date")
+    public String getDateAndTimeNow() {
+        return LocalDateTime.now().toString();
+    }
 
 }

@@ -6,4 +6,30 @@
     android:layout_height="match_parent"
     tools:context=".AdminMode.AdminPage3">
 
+    <LinearLayout
+        android:id="@+id/LinearLayoutHead"
+        android:layout_width="409dp"
+        android:layout_height="155dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="78dp"
+            android:layout_height="72dp"
+            app:srcCompat="@drawable/logo" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/LinearLayoutBody"
+        android:layout_width="409dp"
+        android:layout_height="574dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/LinearLayoutHead"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
