@@ -36,6 +36,9 @@ public class BidController {
 
     @PostMapping("/createBid")
     public ResponseEntity<CreateNewBidModel> addNewBid(@RequestBody CreateNewBidModel model) {
+        if (model.getEndDate().plusSeconds(5).isBefore(LocalDateTime.now())) {
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
         checkForExpiredBids();
         List<BidModel> allCurrentBids = bidRepository.findAll();
         for (BidModel bidModel : allCurrentBids) {
@@ -51,7 +54,8 @@ public class BidController {
                     .save(new BidModel(model.getStartDate(), model.getEndDate(), model.getCryptoName(),
                             model.getEmail()));
             Double priceNow = CryptoPriceController.getCurrentPriceOfCrypto(model.getCryptoName().toLowerCase());
-            singleBidRepository.save(new SingleBidModel(model.getEmail()+priceNow.toString(), LocalDateTime.now(), model.getCryptoName(),
+            singleBidRepository.save(new SingleBidModel(model.getEmail() + priceNow.toString(), LocalDateTime.now(),
+                    model.getCryptoName(),
                     priceNow));
             return new ResponseEntity<>(model, HttpStatus.CREATED);
         } else {
