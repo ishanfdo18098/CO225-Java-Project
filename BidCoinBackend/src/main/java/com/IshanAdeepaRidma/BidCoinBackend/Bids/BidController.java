@@ -3,6 +3,8 @@ package com.IshanAdeepaRidma.BidCoinBackend.Bids;
 import java.time.LocalDateTime;
 import java.util.*;
 
+import com.IshanAdeepaRidma.BidCoinBackend.CryptoAPI.CryptoPriceController;
+import com.IshanAdeepaRidma.BidCoinBackend.CryptoAPI.CryptoPriceModel;
 import com.IshanAdeepaRidma.BidCoinBackend.Users.UserModel;
 import com.IshanAdeepaRidma.BidCoinBackend.Users.UserRepository;
 
@@ -48,6 +50,9 @@ public class BidController {
             bidRepository
                     .save(new BidModel(model.getStartDate(), model.getEndDate(), model.getCryptoName(),
                             model.getEmail()));
+            Double priceNow = CryptoPriceController.getCurrentPriceOfCrypto(model.getCryptoName().toLowerCase());
+            singleBidRepository.save(new SingleBidModel(model.getEmail()+priceNow.toString(), LocalDateTime.now(), model.getCryptoName(),
+                    priceNow));
             return new ResponseEntity<>(model, HttpStatus.CREATED);
         } else {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
