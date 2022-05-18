@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+<<<<<<< HEAD
+=======
         <entry key="..\:/CO225-Java-Project/BidCoinApp/app/src/main/res/layout/activity_admin_page1.xml" value="0.3625" />
         <entry key="..\:/CO225-Java-Project/BidCoinApp/app/src/main/res/layout/activity_admin_page2.xml" value="0.3625" />
         <entry key="..\:/CO225-Java-Project/BidCoinApp/app/src/main/res/layout/activity_admin_page3.xml" value="0.3625" />
@@ -12,17 +14,17 @@
         <entry key="..\:/CO225-Java-Project/BidCoinApp/app/src/main/res/layout/activity_all_current_auctions.xml" value="0.3625" />
         <entry key="..\:/CO225-Java-Project/BidCoinApp/app/src/main/res/layout/activity_bidding.xml" value="0.33" />
         <entry key="..\:/CO225-Java-Project/BidCoinApp/app/src/main/res/layout/activity_login.xml" value="0.22239583333333332" />
+>>>>>>> aaba2701c3a29084609b34e6a7d93b130a772e96
         <entry key="..\:/CO225-Java-Project/BidCoinApp/app/src/main/res/layout/activity_main.xml" value="0.3625" />
         <entry key="..\:/CO225-Java-Project/BidCoinApp/app/src/main/res/layout/activity_register_new_user.xml" value="0.25" />
-        <entry key="..\:/CO225-Java-Project/BidCoinApp/app/src/main/res/layout/activity_select_currency.xml" value="0.3625" />
-        <entry key="..\:/CO225-Java-Project/BidCoinApp/app/src/main/res/layout/activity_top10_crypto.xml" value="0.3625" />
         <entry key="..\:/CO225-Java-Project/BidCoinApp/app/src/main/res/layout/activity_welcome.xml" value="0.3625" />
-        <entry key="..\:/CO225-Java-Project/BidCoinApp/app/src/main/res/layout/list_item.xml" value="0.19166666666666668" />
         <entry key="..\:/CO225-Java-Project/BidCoinApp/app/src/main/res/xml/network_security_config.xml" value="0.1" />
         <entry key="..\:/_SEM 04_/CO225 Software Construction/__ BidCoin Repo/Java-Project-Android-App/BidCoinApp/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/_SEM 04_/CO225 Software Construction/__ BidCoin Repo/Java-Project-Android-App/BidCoinApp/app/src/main/res/layout/activity_register_new_user.xml" value="0.25" />
         <entry key="..\:/_SEM 04_/CO225 Software Construction/__ BidCoin Repo/Java-Project-Android-App/BidCoinApp/app/src/main/res/layout/activity_welcome.xml" value="0.33" />
-        <entry key="..\:/_SEM 04_/CO225 Software Construction/__ Repo New/CO225-Android-App/BidCoinApp/app/src/main/res/layout/activity_all_current_auctions.xml" value="0.1" />
+        <entry key="..\:/_SEM 04_/CO225 Software Construction/__ Repo New/CO225-Android-App/BidCoinApp/app/src/main/res/layout/activity_admin_page2.xml" value="0.13958333333333334" />
+        <entry key="..\:/_SEM 04_/CO225 Software Construction/__ Repo New/CO225-Android-App/BidCoinApp/app/src/main/res/layout/activity_all_current_auctions.xml" value="0.25" />
+        <entry key="..\:/_SEM 04_/CO225 Software Construction/__ Repo New/CO225-Android-App/BidCoinApp/app/src/main/res/layout/activity_login.xml" value="0.13958333333333334" />
         <entry key="..\:/_SEM 04_/CO225 Software Construction/__ Repo New/CO225-Android-App/BidCoinApp/app/src/main/res/layout/activity_top10_crypto.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_bidding.xml" value="0.20299072265625" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.19610507246376813" />
