@@ -1,92 +1,33 @@
-package com.ishanadeeparidma.bidcoin.CryptoRates;
+package com.ishanadeeparidma.bidcoin.CurrentAuctions;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.github.mikephil.charting.charts.LineChart;
-import com.github.mikephil.charting.data.Entry;
-import com.github.mikephil.charting.data.LineData;
-import com.github.mikephil.charting.data.LineDataSet;
-import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
-import com.github.mikephil.charting.listener.OnChartGestureListener;
-import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
-import com.ishanadeeparidma.bidcoin.CurrentAuctions.AllCurrentAuctions;
-import com.ishanadeeparidma.bidcoin.Login.LoginActivity;
 import com.ishanadeeparidma.bidcoin.R;
-
-import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
-import java.util.ArrayList;
+public class AllCurrentAuctions extends AppCompatActivity {
 
+    LinearLayout  LinearLayoutBody;
 
-
-public class Top10CryptoActivity extends AppCompatActivity  {
-
-    private LineChart Top10CryptoLineChart ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_top10_crypto);
+        setContentView(R.layout.activity_all_current_auctions);
 
-        // My codes......
-        Top10CryptoLineChart = (LineChart) findViewById(R.id.Top10CryptoLineChart);
-        // Top10CryptoLineChart.setOnChartGestureListener(Top10CryptoActivity.this);
-        // Top10CryptoLineChart.setOnChartValueSelectedListener(Top10CryptoActivity.this);
-        Top10CryptoLineChart.setDragEnabled(true);
-        //Top10CryptoLineChart.setScaleEnabled(false);
+        LinearLayoutBody = findViewById(R.id.LinearLayoutBody);
+        //Adding 2 TextViews
+        for (int i = 1; i <= 5; i++) {
+            TextView textView = new TextView(this);
+            textView.setText("TextView " + String.valueOf(i));
+            LinearLayoutBody.addView(textView);
 
-        ArrayList<Entry> yValue = new ArrayList<>();
-        // Adding values
-        yValue.add(new Entry(1,1000));
-        yValue.add(new Entry(2,1500));
-        yValue.add(new Entry(3,900));
-        yValue.add(new Entry(4,1800));
-        yValue.add(new Entry(5,1000));
-        yValue.add(new Entry(6,1400));
-        yValue.add(new Entry(7,1050));
-        yValue.add(new Entry(8,800));
-        yValue.add(new Entry(9,1500));
-        yValue.add(new Entry(10,1200));
+            // Button also
+            Button SelectButton = new Button(this);
+            SelectButton.setText("SELECT");
+            LinearLayoutBody.addView(SelectButton);
 
-
-        LineDataSet set1 = new LineDataSet(yValue,"Data Set 1");
-
-        ArrayList<ILineDataSet> dataSets = new ArrayList<>();
-        dataSets.add(set1);
-
-        LineData data = new LineData(dataSets);
-
-        Top10CryptoLineChart.setData(data);
-
-
-        // Styling...
-        set1.setColor(Color.GREEN);
-        set1.setCircleColor(Color.BLUE);
-        set1.setLabel("Currency vs Current Rate");
-        set1.setDrawHorizontalHighlightIndicator(true);
-        set1.setDrawIcons(true);
-        set1.setDrawHorizontalHighlightIndicator(true);
-        set1.setFillColor(Color.GRAY);
-
-        // Now, button functionality.............
-
-        Button ViewCurrentAuctionsButton = (Button) findViewById(R.id.ViewCurrentAuctionsButton);
-        ViewCurrentAuctionsButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Calling the function
-                openAllCurrentAuctionsPage(view);
-            }
-        });
+        }
     }
-
-    // To navigate to the Login Page
-    public void openAllCurrentAuctionsPage(View v){
-        Intent myIntent = new Intent(this, AllCurrentAuctions.class);
-        startActivity(myIntent);
-    }
-
 }
