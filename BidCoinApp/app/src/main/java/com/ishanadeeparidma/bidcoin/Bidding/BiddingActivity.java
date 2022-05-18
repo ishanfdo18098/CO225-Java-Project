@@ -64,7 +64,7 @@ public class BiddingActivity extends AppCompatActivity {
                         maximum = each.getBidValue();
                 }
 
-                currentPrice.setText("$"+maximum.toString());
+                currentPrice.setText("Current Bid: $"+maximum.toString());
             }
 
             @Override
