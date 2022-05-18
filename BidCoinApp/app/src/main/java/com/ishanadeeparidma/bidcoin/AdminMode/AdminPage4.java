@@ -5,6 +5,7 @@ import com.ishanadeeparidma.bidcoin.R;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.View;
@@ -18,27 +19,39 @@ import java.util.Calendar;
 public class AdminPage4 extends AppCompatActivity {
 
 
-
-    EditText date_time_in;
+    EditText date_time_start;
+    EditText date_time_end;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_page4);
-        date_time_in=findViewById(R.id.date_time_input);
+        date_time_start=findViewById(R.id.date_time_input);
+        date_time_end=findViewById(R.id.date_time_input2);
 
-        date_time_in.setInputType(InputType.TYPE_NULL);
+        date_time_start.setInputType(InputType.TYPE_NULL);
+        date_time_end.setInputType(InputType.TYPE_NULL);
 
 
-        date_time_in.setOnClickListener(new View.OnClickListener() {
+        date_time_start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showDateTimeDialog(date_time_in);
+                showDateTimeDialog(date_time_start);
             }
         });
+
+        date_time_end.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDateTimeDialog(date_time_end);
+            }
+        });
+
+
+
     }
 
-    private void showDateTimeDialog(final EditText date_time_in) {
+    private void showDateTimeDialog(final EditText date_time) {
         final Calendar calendar=Calendar.getInstance();
         DatePickerDialog.OnDateSetListener dateSetListener=new DatePickerDialog.OnDateSetListener() {
             @Override
@@ -55,7 +68,7 @@ public class AdminPage4 extends AppCompatActivity {
 
                         SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yy-MM-dd HH:mm");
 
-                        date_time_in.setText(simpleDateFormat.format(calendar.getTime()));
+                        date_time.setText(simpleDateFormat.format(calendar.getTime()));
                     }
                 };
 
@@ -67,7 +80,15 @@ public class AdminPage4 extends AppCompatActivity {
 
     }
 
+    String startTime = date_time_start.getText().toString();
+    String endTime = date_time_end.getText().toString();
 
+    public void confirmButton(View V){
+        Intent i = new Intent(this, AdminPage5.class);
+        i.putExtra("start time",startTime);
+        i.putExtra("end time",endTime);
+        startActivity(i);
+    }
 
 
 
