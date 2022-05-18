@@ -3,7 +3,9 @@ package com.ishanadeeparidma.bidcoin.CurrentAuctions;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.ishanadeeparidma.bidcoin.Bidding.BiddingActivity;
+import com.ishanadeeparidma.bidcoin.Models.CryptoPriceResponse;
 import com.ishanadeeparidma.bidcoin.Models.RunningBidResponse;
+import com.ishanadeeparidma.bidcoin.Models.SingleBidResponse;
 import com.ishanadeeparidma.bidcoin.Net.BidCoinAPIAccess;
 import com.ishanadeeparidma.bidcoin.R;
 import com.ishanadeeparidma.bidcoin.Repository.API_Repository;
@@ -27,11 +29,19 @@ import retrofit2.Response;
 public class AllCurrentAuctions extends AppCompatActivity {
 
     LinearLayout  LinearLayoutBody;
-
+    String email = null;
+    String password = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_current_auctions);
+
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            email = extras.getString("email");
+            password = extras.getString("password");
+            //The key argument here must match that used in the other activity
+        }
 
         //        get api reference
         BidCoinAPIAccess api = API_Repository.api;
@@ -46,15 +56,15 @@ public class AllCurrentAuctions extends AppCompatActivity {
                 else {
                     for (RunningBidResponse eachBid : response.body()) {
                         TextView auctionName = new TextView(AllCurrentAuctions.this);
-                        auctionName.setText("AUCTION " + eachBid.getCryptoName()); // Just number
+                        auctionName.setText("AUCTION on : " + eachBid.getCryptoName()); // Just number
                         LinearLayoutBody.addView(auctionName);
 
                         TextView startAt = new TextView(AllCurrentAuctions.this);
-                        startAt.setText("START " + eachBid.getStartDate());  // Add Starting time from db
+                        startAt.setText("START : " + eachBid.getStartDate());  // Add Starting time from db
                         LinearLayoutBody.addView(startAt);
 
                         TextView endAt = new TextView(AllCurrentAuctions.this);
-                        endAt.setText("END " + eachBid.getEndDate());  // Add Ending time from db
+                        endAt.setText("END : "  + eachBid.getEndDate());  // Add Ending time from db
                         LinearLayoutBody.addView(endAt);
 
                         // Button also
@@ -64,6 +74,8 @@ public class AllCurrentAuctions extends AppCompatActivity {
                             public void onClick(View view) {
                                 Intent i = new Intent(AllCurrentAuctions.this, BiddingActivity.class);
                                 i.putExtra("cryptoName",eachBid.getCryptoName());
+                                i.putExtra("email",email);
+                                i.putExtra("password",password);
                                 startActivity(i);
                             }
                         });

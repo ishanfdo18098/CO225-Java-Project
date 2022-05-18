@@ -7,9 +7,16 @@ import java.time.LocalDateTime;
 
 public class SingleBidResponse implements Parcelable {
     private String email;
-    private LocalDateTime bidEnteredTime;
+    private String bidEnteredTime;
     private String cryptoName;
     private Double bidValue;
+
+    public SingleBidResponse(String email, String bidEnteredTime, String cryptoName, Double bidValue) {
+        this.email = email;
+        this.bidEnteredTime = bidEnteredTime;
+        this.cryptoName = cryptoName;
+        this.bidValue = bidValue;
+    }
 
     protected SingleBidResponse(Parcel in) {
         email = in.readString();
@@ -41,11 +48,11 @@ public class SingleBidResponse implements Parcelable {
         this.email = email;
     }
 
-    public LocalDateTime getBidEnteredTime() {
+    public String getBidEnteredTime() {
         return bidEnteredTime;
     }
 
-    public void setBidEnteredTime(LocalDateTime bidEnteredTime) {
+    public void setBidEnteredTime(String bidEnteredTime) {
         this.bidEnteredTime = bidEnteredTime;
     }
 
