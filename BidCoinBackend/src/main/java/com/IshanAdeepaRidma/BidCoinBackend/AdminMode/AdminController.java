@@ -50,6 +50,7 @@ public class AdminController {
         for (SingleBidModel each : allSingleBids) {
             singleBidRepository.delete(each);
         }
+        bidRepository.delete(thisBid);
         return new BidCancelModel(cryptoName, wonName, bidWonPrice);
     }
 }
