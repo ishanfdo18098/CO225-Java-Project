@@ -84,8 +84,13 @@ public class AdminPage5 extends AppCompatActivity {
                                     public void onResponse(Call<AdminCancelBidModel> call, Response<AdminCancelBidModel> response) {
                                         AdminCancelBidModel responseBody = response.body();
                                         Toast.makeText(getApplicationContext(), "Bid cancelled, Won by " + responseBody.getWhoWonTheBid(),Toast.LENGTH_SHORT).show();
-                                        finish();
-                                        startActivity(getIntent());
+                                        Intent winnerIntent = new Intent(AdminPage5.this, AdminPage6.class);
+                                        winnerIntent.putExtra("wonBy",responseBody.getWhoWonTheBid());
+                                        winnerIntent.putExtra("crypto",responseBody.getCryptoName());
+                                        winnerIntent.putExtra("bidPrice",responseBody.getBidWonPrice());
+                                        startActivity(winnerIntent);
+//                                        finish();
+//                                        startActivity(getIntent());
                                     }
 
                                     @Override

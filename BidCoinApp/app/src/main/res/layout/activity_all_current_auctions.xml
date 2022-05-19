@@ -21,6 +21,13 @@
             android:layout_width="78dp"
             android:layout_height="72dp"
             app:srcCompat="@drawable/logo" />
+
+        <Button
+            android:id="@+id/button6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="auctionsWonByMeButtonClick"
+            android:text="View Auctions Won By Me" />
     </LinearLayout>
 
     <LinearLayout

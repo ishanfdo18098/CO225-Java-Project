@@ -5,11 +5,11 @@ import java.time.LocalDateTime;
 public class WonBidsModel {
     private String email;
     private String cryptoName;
-    private LocalDateTime startTime;
-    private LocalDateTime endTime;
+    private String startTime;
+    private String endTime;
     private Double bidWonValue;
 
-    public WonBidsModel(String email, String cryptoName, LocalDateTime startTime, LocalDateTime endTime, Double bidWonValue) {
+    public WonBidsModel(String email, String cryptoName, String startTime, String endTime, Double bidWonValue) {
         this.email = email;
         this.cryptoName = cryptoName;
         this.startTime = startTime;
@@ -33,19 +33,19 @@ public class WonBidsModel {
         this.cryptoName = cryptoName;
     }
 
-    public LocalDateTime getStartTime() {
+    public String getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(LocalDateTime startTime) {
+    public void setStartTime(String startTime) {
         this.startTime = startTime;
     }
 
-    public LocalDateTime getEndTime() {
+    public String getEndTime() {
         return endTime;
     }
 
-    public void setEndTime(LocalDateTime endTime) {
+    public void setEndTime(String endTime) {
         this.endTime = endTime;
     }
 

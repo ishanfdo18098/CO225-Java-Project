@@ -2,6 +2,7 @@ package com.ishanadeeparidma.bidcoin.CurrentAuctions;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.ishanadeeparidma.bidcoin.Bidding.AuctionsWonByMe;
 import com.ishanadeeparidma.bidcoin.Bidding.BiddingActivity;
 import com.ishanadeeparidma.bidcoin.Models.CryptoPriceResponse;
 import com.ishanadeeparidma.bidcoin.Models.RunningBidResponse;
@@ -92,6 +93,8 @@ public class AllCurrentAuctions extends AppCompatActivity {
             }
         });
 
+
+
 //
 //        //Adding 2 TextViews
 //        for (int i = 1; i <= 5; i++) {
@@ -113,5 +116,12 @@ public class AllCurrentAuctions extends AppCompatActivity {
 //            LinearLayoutBody.addView(SelectButton);
 //
 //        }
+    }
+
+    public void auctionsWonByMeButtonClick(View v){
+        Intent nextIntent = new Intent(AllCurrentAuctions.this, AuctionsWonByMe.class);
+        nextIntent.putExtra("email",email);
+        nextIntent.putExtra("passwprd",password);
+        startActivity(nextIntent);
     }
 }

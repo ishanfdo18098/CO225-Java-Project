@@ -53,6 +53,7 @@
         <activity
             android:name=".CryptoRates.Top10CryptoActivity"
             android:exported="false" />
+        <activity android:name=".Bidding.AuctionsWonByMe" />
         <activity
             android:name=".Login.Welcome"
             android:exported="true">
