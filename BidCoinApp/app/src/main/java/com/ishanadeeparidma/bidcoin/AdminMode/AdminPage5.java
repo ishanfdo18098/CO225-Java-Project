@@ -87,7 +87,8 @@ public class AdminPage5 extends AppCompatActivity {
                                         Intent winnerIntent = new Intent(AdminPage5.this, AdminPage6.class);
                                         winnerIntent.putExtra("wonBy",responseBody.getWhoWonTheBid());
                                         winnerIntent.putExtra("crypto",responseBody.getCryptoName());
-                                        winnerIntent.putExtra("bidPrice",responseBody.getBidWonPrice());
+                                        winnerIntent.putExtra("bidPrice",responseBody.getBidWonPrice().toString());
+                                        Log.d("BIDWONPRICE Before",responseBody.getBidWonPrice().toString());
                                         startActivity(winnerIntent);
 //                                        finish();
 //                                        startActivity(getIntent());
